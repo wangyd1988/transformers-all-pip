@@ -26,7 +26,7 @@ jobs:
       run: |
            docker build . --file Dockerfile --tag  registry.cn-hangzhou.aliyuncs.com/testwydimage/trm-wyd
       
-    - name: Build and push sriov-network-operator
+    - name: Build and push transformer-pip-all
       run: |
             docker push registry.cn-hangzhou.aliyuncs.com/testwydimage/trm-wyd
       
