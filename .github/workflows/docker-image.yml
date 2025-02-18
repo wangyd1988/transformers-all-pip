@@ -1,0 +1,32 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: docker/setup-buildx-action@v3
+    
+
+
+    - name: Login to Docker
+      run: |
+           docker login --username=891837847@qq.com registry.cn-hangzhou.aliyuncs.com -p wyd,boy1988
+
+    - name: Build the Docker image
+      run: |
+           docker build . --file Dockerfile --tag  registry.cn-hangzhou.aliyuncs.com/testwydimage/trm-wyd
+      
+    - name: Build and push sriov-network-operator
+      run: |
+            docker push registry.cn-hangzhou.aliyuncs.com/testwydimage/trm-wyd
+      
