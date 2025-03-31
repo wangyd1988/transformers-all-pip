@@ -11,8 +11,8 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip
 
 # RUN python3 -m pip install --no-cache-dir transformers torch fastapi uvicorn 
 
-# RUN python3 -m pip install --no-cache-dir json datetime re 
-RUN python3 -m pip install --no-cache-dir transformers
+RUN python3 -m pip install --no-cache-dir json datetime re 
+# RUN python3 -m pip install --no-cache-dir transformers
 
 FROM docker.io/library/busybox:latest
 COPY --from=builder /usr/local/lib/python3.9/dist-packages  /bin
